@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,13 +17,14 @@ import java.util.List;
  */
 @Api(tags = "测试接口")
 @RestController
+@RequestMapping("index/")
 public class TestController {
     @Autowired
-    TestService testService;
+    private TestService testService;
 
-    @ApiOperation("测试接口")
-    @GetMapping(value = "test")
-    public List<Test> Test(){
-        return testService.Test();
+    @ApiOperation("获取测试用例")
+    @GetMapping(value = "method")
+    public List<Test> Test() {
+        return testService.getTest();
     }
 }
