@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ApplicationTests {
@@ -24,6 +26,12 @@ public class ApplicationTests {
     @Test
     public void Test2() {
         com.mysonandme.pojo.Test test = testMapper.selectById(4);
+        System.out.println(test);
+    }
+
+    @Test
+    public void Test3(){
+        List<com.mysonandme.pojo.Test> test = testMapper.Test();
         System.out.println(test);
     }
 }
