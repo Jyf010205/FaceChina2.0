@@ -34,3 +34,6 @@ pagehelper:
   offset-as-page-num: true
   row-bounds-with-count: true
   reasonable: false
+
+logging:
+  config: classpath:log4j2.xml

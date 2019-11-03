@@ -1,5 +1,6 @@
 package com.mysonandme;
 
+import com.github.pagehelper.PageHelper;
 import com.mysonandme.mapper.TestMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,7 +32,10 @@ public class ApplicationTests {
 
     @Test
     public void Test3(){
+        PageHelper.startPage(1,1);
         List<com.mysonandme.pojo.Test> test = testMapper.Test();
-        System.out.println(test);
+        for (com.mysonandme.pojo.Test t: test) {
+           System.out.println(t);
+        }
     }
 }

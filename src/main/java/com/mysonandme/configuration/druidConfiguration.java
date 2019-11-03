@@ -2,6 +2,8 @@ package com.mysonandme.configuration;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +15,8 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class druidConfiguration {
+    private static final Logger LOG = LogManager.getLogger(druidConfiguration.class);
+
     @Bean
     public ServletRegistrationBean druidStatViewServle() {
         //注册服务
@@ -39,7 +43,7 @@ public class druidConfiguration {
         // 添加不需要忽略的格式信息
         filterRegistrationBean.addInitParameter("exclusions",
                 "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-        System.out.println("druid初始化成功!");
+        LOG.info("druid初始化成功!");
         return filterRegistrationBean;
 
     }
