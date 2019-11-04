@@ -12,5 +12,5 @@ import java.util.List;
  */
 @Mapper
 public interface TestMapper extends BaseMapper<Test> {
-    List<Test> Test();
+    List<Test> getTest();
 }

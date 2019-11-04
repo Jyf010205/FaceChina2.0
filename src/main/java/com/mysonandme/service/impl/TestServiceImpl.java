@@ -16,6 +16,6 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public List<Test> getTest() {
-        return testMapper.Test();
+        return testMapper.getTest();
     }
 }

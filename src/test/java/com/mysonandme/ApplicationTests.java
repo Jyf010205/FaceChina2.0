@@ -33,7 +33,7 @@ public class ApplicationTests {
     @Test
     public void Test3(){
         PageHelper.startPage(1,1);
-        List<com.mysonandme.pojo.Test> test = testMapper.Test();
+        List<com.mysonandme.pojo.Test> test = testMapper.getTest();
         for (com.mysonandme.pojo.Test t: test) {
            System.out.println(t);
         }
