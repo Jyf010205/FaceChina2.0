@@ -2,6 +2,7 @@ package com.mysonandme;
 
 import com.github.pagehelper.PageHelper;
 import com.mysonandme.mapper.TestMapper;
+import com.mysonandme.utils.RedisUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ import java.util.List;
 public class ApplicationTests {
     @Autowired
     TestMapper testMapper;
+
+    @Autowired
+    RedisUtil redisUtil;
 
     @Test
     public void Test1() {
@@ -37,5 +41,11 @@ public class ApplicationTests {
         for (com.mysonandme.pojo.Test t: test) {
            System.out.println(t);
         }
+    }
+
+    @Test
+    public void Test4(){
+        redisUtil.set("Test","测试");
+        System.out.println(redisUtil.get("Test"));
     }
 }
