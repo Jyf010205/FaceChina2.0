@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Api(tags = "测试接口")
 @RestController
-@RequestMapping("index/")
+@RequestMapping("/index/")
 public class TestController extends BaseController {
     @Autowired
     private TestService testService;
