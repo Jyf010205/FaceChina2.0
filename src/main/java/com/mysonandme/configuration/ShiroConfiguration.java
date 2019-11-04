@@ -59,7 +59,6 @@ public class ShiroConfiguration {
         return shiroFilterFactoryBean;
     }
 
-    //加入注解的使用，不加入这个注解不生效
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(DefaultWebSecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();

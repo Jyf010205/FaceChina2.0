@@ -5,6 +5,7 @@ import com.mysonandme.pojo.sys.User;
 import com.mysonandme.rep.ResponseMO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Api(tags = "用户管理接口")
 @RequestMapping("/user/")
+@Slf4j
 public class UseController extends BaseController {
 
 
@@ -43,8 +45,10 @@ public class UseController extends BaseController {
 //            subject.checkRole("admin");
 //            subject.checkPermission("add");
         }catch (AuthenticationException e) {
+            log.error("认证失败" + e);
             e.printStackTrace();
         }catch (AuthorizationException e) {
+            log.error("授权失败" + e);
             e.printStackTrace();
         }
 

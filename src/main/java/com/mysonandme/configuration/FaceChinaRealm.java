@@ -22,7 +22,7 @@ public class FaceChinaRealm extends AuthorizingRealm  {
     private UserService userService;
 
     /**
-     * 自定义认证
+     * 自定义授权
      * @param principalCollection
      * @return
      */
@@ -47,7 +47,8 @@ public class FaceChinaRealm extends AuthorizingRealm  {
     }
 
     /**
-     * 自定义授权
+     * 自定义认证
+     *
      * @param authenticationToken
      * @return
      * @throws AuthenticationException
