@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
  * @description: druid配置类
  */
 @Configuration
-public class druidConfiguration {
-    private static final Logger LOG = LogManager.getLogger(druidConfiguration.class);
+public class DruidConfiguration {
+    private static final Logger LOG = LogManager.getLogger(DruidConfiguration.class);
 
     @Bean
     public ServletRegistrationBean druidStatViewServle() {
