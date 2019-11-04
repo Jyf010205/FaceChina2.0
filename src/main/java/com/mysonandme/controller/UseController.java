@@ -34,25 +34,31 @@ public class UseController extends BaseController {
     @PostMapping("login")
     @ApiOperation("用户登录")
     public ResponseMO userLogin(User user) {
-
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(
                 user.getUserName(),
+
                 user.getPassword()
         );
-        try{
+        usernamePasswordToken.setRememberMe(true);
+        try {
             subject.login(usernamePasswordToken);
 //            subject.checkRole("admin");
 //            subject.checkPermission("add");
-        }catch (AuthenticationException e) {
+            if (subject.isAuthenticated()) {
+                log.info("登录成功=[{}]",user.getUserName());
+                return success("login successfully");
+            }
+            log.error("登录失败");
+            return error("login failed");
+        } catch (AuthenticationException e) {
             log.error("认证失败" + e);
             e.printStackTrace();
-        }catch (AuthorizationException e) {
+        } catch (AuthorizationException e) {
             log.error("授权失败" + e);
             e.printStackTrace();
         }
-
-        return success("Login successfully");
+        return null;
     }
 
 

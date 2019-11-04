@@ -16,6 +16,10 @@ public class User {
     private Set<Role> roles;
 
     public User(String s, String wsl, String s1, Set<Role> roleSet) {
+        this.id = s;
+        this.userName = wsl;
+        this.password = s1;
+        this.roles = roleSet;
     }
     //省略set、get方法等.....
 }
