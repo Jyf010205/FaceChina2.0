@@ -17,19 +17,23 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 public class SwaggerConfiguration {
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(buildApiInfo())
+                .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.mysonandme.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
-    private ApiInfo buildApiInfo() {
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("FaceChina接口系统")
-                .version("1.0").build();
+                .title("FaceChina")
+                .description("face-china")
+                .termsOfServiceUrl("http://www.facechina.com/")
+                .version("1.0")
+                .build();
     }
 }

@@ -1,14 +1,13 @@
 package com.mysonandme.service;
 
-import com.mysonandme.pojo.sys.User;
+import com.mysonandme.pojo.UserDO;
 
 /**
- * Description:用户业务层
- * Author:kbq
- * Date: 2019-11-04 13:54
+ * Description:
+ * Author:
+ * Date: 2019-11-16 14:20
  */
 public interface UserService {
 
-
-    public User getUserByuserName(String userName);
+    UserDO fetchUserDO(String userName);
 }

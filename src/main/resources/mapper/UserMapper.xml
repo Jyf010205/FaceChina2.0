@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mysonandme.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.mysonandme.pojo.UserDO" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="USER_LOGIN_NAME" property="userLoginName" jdbcType="VARCHAR" />
+    <result column="USER_AGE" property="userAge" jdbcType="INTEGER" />
+    <result column="USER_EMAIL" property="userEmail" jdbcType="VARCHAR" />
+    <result column="USER_PASSWORD" property="userPassword" jdbcType="VARCHAR" />
+    <result column="USER_SALT" property="userSalt" jdbcType="VARCHAR" />
+    <result column="USER_STATE" property="userState" jdbcType="INTEGER" />
+    <result column="USER_CREATETIME" property="userCreatetime" jdbcType="DATE" />
+    <result column="USER_LASTTIME" property="userLasttime" jdbcType="DATE" />
+    <result column="USER_LOGIN_COUNT" property="userLoginCount" jdbcType="INTEGER" />
+    <result column="USER_ROLE_ID" property="userRoleId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USER_ID, USER_NAME, USER_LOGIN_NAME, USER_AGE, USER_EMAIL, USER_PASSWORD, USER_SALT, 
+    USER_STATE, USER_CREATETIME, USER_LASTTIME, USER_LOGIN_COUNT, USER_ROLE_ID
+  </sql>
+  <select id="fetchUserDO" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from USER
+    where USER_NAME = #{userName,jdbcType=INTEGER}
+  </select>
+</mapper>
